@@ -1,29 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import * as Icon from 'react-feather';
+import IconsAreaStyles from '../IconsAreaStyles'
 
-const IconsArea = styled.div`
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    
-    & > svg {
-        color: var(--grey-three);
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            color: var(--grey-two)
-        }
-
-
-    }
-`
-
-const NotificationsArea = styled(IconsArea)`
+const NotificationsArea = styled(IconsAreaStyles)`
     border-right: 2px solid var(--background);
     border-left: 2px solid var(--background);
+    display: none;
 
     & > svg {
         margin-left: 8px;
@@ -34,6 +17,7 @@ const NotificationsArea = styled(IconsArea)`
     }
     
     @media screen and (min-width: 1024px) {
+        display: flex;
         
         &:hover {
             & > svg {
@@ -75,7 +59,7 @@ const BadgeNotification = styled.div`
 
 `
 
-const EmptyNotificationsArea = styled(IconsArea)`
+const EmptyNotificationsArea = styled(IconsAreaStyles)`
     border-right: 2px solid var(--background);
     border-left: 2px solid var(--background);
 `

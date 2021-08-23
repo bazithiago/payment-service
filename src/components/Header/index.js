@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
-import Notifications from './Notifications';
-import IconsArea from './IconsArea/index'
+import InfoArea from './InfoArea'
 
 
 const HeaderStyles = styled.div`
@@ -43,17 +42,12 @@ const InputSearch = styled.input`
     }
 `
 
-const UserArea = styled.div`
-    display: flex;
-    height: 100%;
-`
-
 
 
 
 
 const Header = () => {
-    const [notifications, setNotifications] = React.useState([99]);
+    const [notifications] = React.useState([99]);
 	
     return (
 		<HeaderStyles>
@@ -61,12 +55,12 @@ const Header = () => {
                 <Icon.Search color={`var(--grey-three)`} />
                 <InputSearch placeholder={'Search for...'} />
             </SearchArea>
-            <UserArea>
-                <Notifications notifications={notifications}/>
-                <IconsArea>
-                    <Icon.LifeBuoy size={28}/>
-                </IconsArea>
-            </UserArea>
+            <InfoArea 
+                notifications={notifications} 
+                avatar='https://avatars.githubusercontent.com/u/48968467?v=4'
+                userName='Username example'
+            />
+
 		</HeaderStyles>
 	);
 };

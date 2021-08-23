@@ -1,4 +1,3 @@
-import React from "react"
 import styled from "styled-components"
 
 const IconsAreaStyles = styled.div`
@@ -20,13 +19,4 @@ const IconsAreaStyles = styled.div`
     }
 `
 
-const IconsArea = ({ children }) => {
-    return (
-        <IconsAreaStyles>
-            {children}        
-        </IconsAreaStyles>
-    )
-}
-
-
-export default IconsArea;
+export default IconsAreaStyles;
