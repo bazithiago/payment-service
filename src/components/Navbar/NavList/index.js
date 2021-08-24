@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
 import navbarData from '../navbarData'
-// import * as Icon from 'react-feather'
 
 
 const NavListStyles = styled.div`
@@ -57,13 +56,10 @@ const NavListStyles = styled.div`
 const NavList = () => {
     return(
         <NavListStyles>
-            {navbarData.map((item, route, index) => {
+            {navbarData.map((item, index) => {
                 return (
-                    <div key={index}>
-                        {item.icon}
-                        <a href={route}>
-                            <span>{item.title}</span>
-                        </a>
+                    <div key={index} href={item.path}>
+                        {item.icon}<span>{item.title}</span>
                     </div>
                 )
             })}

@@ -112,7 +112,11 @@ const NavSideDesktop = styled.nav`
         padding-top: 100px;
         z-index: 2;
 
-        & > div > div > a > span {
+        & > div {
+            width: 100%;
+        }
+
+        & > div > div > span {
            display: none;
         }
 
@@ -121,7 +125,7 @@ const NavSideDesktop = styled.nav`
             width: 330px;
             transition: all 0.2s ease-in-out;
 
-            & > div > div > a > span {
+            & > div > div > span {
                display: block;
         }
 

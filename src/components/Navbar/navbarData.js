@@ -6,25 +6,25 @@ const navbarData = [
     {
         title: 'Home',
         icon: <Icon.Grid />,
-        route: '/'
+        path: 'home'
         
     },
     {
         title: 'Network',
         icon: <Icon.Share2 />,
-        route: '/'
+        path: 'network'
 
     },
     {
         title: 'Clients',
         icon: <Icon.Users />,
-        route: '/'
+        path: 'Clients'
 
     },
     {
         title: 'List',
         icon: <Icon.List />,
-        route: '/'
+        path: 'List'
     },
 ]
 
