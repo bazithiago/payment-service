@@ -12,6 +12,7 @@ const HeaderStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    z-index: 3;
 
     @media screen and (min-width: 1024px) {
         position: fixed;

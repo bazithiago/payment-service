@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as Icon from 'react-feather';
-import navbarData from './navbarData'
+import * as Icon from 'react-feather'
+import NavList from './NavList'
 
 const Icons = styled.a`
     width: 100px;
@@ -44,6 +44,7 @@ const LogoIcon = styled.a`
     align-items: center;
     color: var(--primary);
     display: none;
+    z-index: 5;
     
     &:hover {
         color: var(--grey-two);
@@ -63,7 +64,6 @@ const MenuNav = styled.div`
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 5;
@@ -80,69 +80,52 @@ const MenuNav = styled.div`
         transition: all 0.5s;
         transition-timing-function: ease-in-out;
     }
+
+    @media screen and (min-width: 1024px) {
+        display: none;
+    }
 `
 
 const NavSideMobile = styled.nav`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 10vh;
-    list-style-type: none;
-      
-    div {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        color: var(--grey-three);
-        height: 50px;
-        margin: 15px 0;
-
-        svg {
-            margin: 0 50px 0 28px;
-        }
-
-        span {
-            font-family: Roboto, sans-serif;
-            font-size: 1.4rem;
-        }
-
-        &:before{
-        content: '';
-        width: 5px;
-        height: 100%;
-        background-color: transparent;
-        border-radius: 0 4px 4px 0;
-        }
-
-        &:hover {
-            color: var(--primary);
-
-            &:before{
-                content: '';
-                width: 5px;
-                height: 100%;
-                background-color: var(--primary);
-            }
-        }
-    }
+    justify-content: center;
+    padding-top: 15vh;
 `
 
 const NavSideDesktop = styled.nav`
     display: none;
+    transition: all 0.2s ease-in-out;
+    
 
     @media screen and (min-width: 1024px) {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
+        align-items: flex-start;
+        justify-content: center;
         width: 100px;
         height: 100vh;
         background-color: var(--white);
         border-right: 2px solid var(--background);
         position: fixed;
         top: 0;
-        margin-top: 80px;
-        background-color: red;
+        padding-top: 100px;
+        z-index: 2;
+
+        & > div > div > a > span {
+           display: none;
+        }
+
+
+        &:hover {
+            width: 330px;
+            transition: all 0.2s ease-in-out;
+
+            & > div > div > a > span {
+               display: block;
+        }
+
+        }
     }
 
 `;
@@ -174,25 +157,13 @@ function Navbar() {
                     />
                 </Icons>
                 <NavSideMobile>
-                    {navbarData.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                {item.icon}<span>{item.title}</span>
-                            </div>
-                        )
-                    })}
+                    <NavList />
                 </NavSideMobile>
-                <span></span>
             </MenuNav>
-                <NavSideDesktop>
-                    {navbarData.map((item, index) => {
-                        return (
-                            <div key={index}>
-                                {item.icon}<span></span>
-                            </div>
-                        )
-                    })}
-                </NavSideDesktop>
+
+            <NavSideDesktop>
+                <NavList />
+            </NavSideDesktop>
         </>
     )
 }
