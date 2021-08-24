@@ -15,9 +15,9 @@ function App() {
     <>
       <GlobalStyle />
         <Container>
-          <Header />
+          <Header userName='Thiago Vieira'/>
           <Navbar />
-          <TasksFeed />
+          <TasksFeed userName='Thiago Vieira'/>
         </Container>
     </>
   );

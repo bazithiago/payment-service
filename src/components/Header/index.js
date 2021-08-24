@@ -51,7 +51,7 @@ const InputSearch = styled.input`
 
 
 
-const Header = () => {
+const Header = ({ userName }) => {
     const [notifications] = React.useState([99]);
 	
     return (
@@ -63,7 +63,7 @@ const Header = () => {
             <InfoArea 
                 notifications={notifications} 
                 avatar='https://avatars.githubusercontent.com/u/48968467?v=4'
-                userName='Username example'
+                userName={userName}
             />
 
 		</HeaderStyles>

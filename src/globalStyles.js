@@ -11,7 +11,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     :root {
-    --primary: #00D96E;
+    --primary: #50c751;
     --grey-one: #0C0E25;
     --grey-two: #90939A;
     --grey-three: #BFC0C2;
@@ -47,16 +47,7 @@ const GlobalStyle = createGlobalStyle`
         cursor: pointer;
     }
 
-    /* @media screen and (min-width: 600px) {
-        html {
-            display: flex;
-            justify-content: center;
-            background-color: red;
-        }
-        body {
-            width: 600px;
-        }
-    } */
+
 `;
  
 export default GlobalStyle;

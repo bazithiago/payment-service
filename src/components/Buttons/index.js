@@ -2,18 +2,24 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const ButtonStyles = styled.button`
-    border-radius: 8px;
-    width: 100%;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 0.8rem;
+const Button = styled.button`
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.9rem;
     text-align: center;
-    text-transform: uppercase;
-    padding: 12px 20px;
-    background-color: var(--white);
+    padding: 13px 30px;
+    background-color: transparent;
     color: var(--grey-two);
-    border: 2px solid var(--grey-two);
+    border: 2px solid var(--grey-three);
+
+    ${ props => props.primary
+    && `
+        background-color: var(--primary);
+        color: white;
+        border: 0;
+        outline: 0;
+    `
+    };
 
     :hover {
         background-color: var(--grey-two);;
@@ -22,8 +28,9 @@ const ButtonStyles = styled.button`
         transition: all 0.2s;
     }
 
-    ${(props)=>{
-        if (props.status === "late") {
+
+    ${({ status }) => {
+        if (status === "late") {
             return(`
             background-color: var(--red-alert);
             color: var(--white);
@@ -34,15 +41,15 @@ const ButtonStyles = styled.button`
             }
             `)
         }
-        else if(props.status === "toDo") {
+        else if(status === "toDo") {
             return(`
-            background-color: var(--yellow-attention);
-            color: var(--white);
-            border: 0;
+                background-color: var(--yellow-attention);
+                color: var(--white);
+                border: 0;
 
-            :hover {
-                background-color: #FF8903;
-            }
+                :hover {
+                    background-color: #FF8903;
+                }
             `)
         }
         // else if(props.status === "okay") {
@@ -58,15 +65,16 @@ const ButtonStyles = styled.button`
         // }
     }}
 
-`;
 
-const Button = ({children, status}) => {
-    return(
-        <ButtonStyles status={status}>
-            {children}
-        </ButtonStyles>
-    );
-};
+`
+
+// const Button = ({ variant, children, status }) => {
+//     return(
+//         <ButtonStyles status={status} variant={variant}>
+//             {children}
+//         </ButtonStyles>
+//     );
+// };
 
 
 export default Button;
