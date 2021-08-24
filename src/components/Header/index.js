@@ -12,6 +12,10 @@ const HeaderStyles = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media screen and (min-width: 1024px) {
+        position: fixed;
+    }
 `
 const SearchArea = styled.div`
     display: flex;

@@ -15,7 +15,7 @@ function App() {
     <>
       <GlobalStyle />
         <Container>
-          <Header notifications='99'/>
+          <Header />
           <Navbar />
           <TasksFeed />
         </Container>

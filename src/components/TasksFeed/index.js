@@ -40,6 +40,12 @@ export const Info = styled.div`
         font-size: 2rem;
         color: var(--grey-one);
     }
+
+    @media screen and (min-width: 1024px) {
+        top: 80px;
+        /* position: fixed; */
+    }
+
 `
 
 export const CardsList = styled.div`

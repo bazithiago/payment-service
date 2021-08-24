@@ -42,15 +42,15 @@ const LogoIcon = styled.a`
     border-right: 2px solid var(--background);
     justify-content: center;
     align-items: center;
-    color: var(--grey-three);
+    color: var(--primary);
     display: none;
     
     &:hover {
-        color: var(--primary);
+        color: var(--grey-two);
     }
 
     @media screen and (min-width: 1024px) {
-        position: absolute;
+        position: fixed;
         display: flex;
         top: 0;
     }
@@ -127,7 +127,7 @@ const NavSideMobile = styled.nav`
     }
 `
 
-const NavSideDesktop = styled.div`
+const NavSideDesktop = styled.nav`
     display: none;
 
     @media screen and (min-width: 1024px) {
@@ -142,7 +142,7 @@ const NavSideDesktop = styled.div`
         position: fixed;
         top: 0;
         margin-top: 80px;
-        padding: 10% 0;
+        background-color: red;
     }
 
 `;
@@ -184,15 +184,15 @@ function Navbar() {
                 </NavSideMobile>
                 <span></span>
             </MenuNav>
-            <NavSideDesktop>
-                {navbarData.map((item, index) => {
-                    return (
-                        <div key={index}>
-                            {item.icon}<span></span>
-                        </div>
-                    )
-                })}
-            </NavSideDesktop>
+                <NavSideDesktop>
+                    {navbarData.map((item, index) => {
+                        return (
+                            <div key={index}>
+                                {item.icon}<span></span>
+                            </div>
+                        )
+                    })}
+                </NavSideDesktop>
         </>
     )
 }
