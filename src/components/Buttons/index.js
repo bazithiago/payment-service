@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 
@@ -12,22 +11,24 @@ const Button = styled.button`
     color: var(--grey-two);
     border: 2px solid var(--grey-three);
 
-    ${ props => props.primary
-    && `
-        background-color: var(--primary);
-        color: white;
-        border: 0;
-        outline: 0;
-    `
-    };
-
-    :hover {
-        background-color: var(--grey-two);;
+    &:hover {
+        background-color: var(--grey-three);
         color: var(--white);
-        transform: translateY(-2px);
-        transition: all 0.2s;
+        transition: all 0.2s ease-in-out;
     }
 
+    ${ props => props.primary
+        && `
+            background-color: var(--primary);
+            color: var(--white);
+            border: 0;
+
+            :hover {
+                background-color: var(--primary-hover);
+                transform: all 0.2s;
+            }
+            `
+    };
 
     ${({ status }) => {
         if (status === "late") {

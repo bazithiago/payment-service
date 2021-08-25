@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 
     :root {
     --primary: #50c751;
+    --primary-hover: #5fe660;
     --grey-one: #0C0E25;
     --grey-two: #90939A;
     --grey-three: #BFC0C2;

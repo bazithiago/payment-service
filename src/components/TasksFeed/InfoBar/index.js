@@ -23,7 +23,25 @@ const InfoBarStyles = styled.div`
         color: var(--grey-one);
     }
 
-    & > div + div {     //buttons
+    & > :nth-child(2) {
+        margin-right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--primary);
+        border-radius: 50%;
+        padding: 5px;
+        color: var(--white);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+
+        :hover {
+            background-color: var(--primary-hover);
+        }
+    }
+
+    & > :nth-child(3) {     //buttons
         display: none;
     }
 
@@ -36,11 +54,11 @@ const InfoBarStyles = styled.div`
         display: flex;
         justify-content: space-between;
 
-        & > div {                //icons
+        & > :nth-child(2) {                //icons
             display: none;
         }
 
-        & > div + div {          //buttons
+        & > :nth-child(3) {          //buttons
             display: flex;
 
             button + button {
@@ -58,7 +76,6 @@ const InfoBar = ({ userName }) => {
         <InfoBarStyles>
             <h1>{userName}</h1>
             <div>
-                <Icon.Archive />
                 <Icon.Plus />
             </div>
             <div>
