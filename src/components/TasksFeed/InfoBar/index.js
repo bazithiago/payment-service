@@ -9,13 +9,10 @@ const InfoBarStyles = styled.div`
     justify-content: space-between;
     height: 100px;
     width: 100%;
-    position: sticky;   
-    top: 0;
     background-color: var(--background);
-    padding-left: 30px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
 
-    h1 {
+    h1 {                        
         font-family: Roboto;
         font-style: normal;
         font-weight: 700;
@@ -23,7 +20,7 @@ const InfoBarStyles = styled.div`
         color: var(--grey-one);
     }
 
-    & > :nth-child(2) {
+    & > :nth-child(2) {     //icon mobile
         margin-right: 30px;
         display: flex;
         align-items: center;
@@ -41,29 +38,26 @@ const InfoBarStyles = styled.div`
         }
     }
 
-    & > :nth-child(3) {     //buttons
+    & > :nth-child(3) {     //buttons desktop
         display: none;
     }
 
     @media screen and (min-width: 1024px) {
-        position: fixed;
         height: 150px;
-        top: 80px;
-        padding-left: 172px;
         box-shadow: none;
         display: flex;
         justify-content: space-between;
-
-        & > :nth-child(2) {                //icons
+        padding-right: 35px;
+        
+        & > :nth-child(2) {                //icon mobile
             display: none;
         }
 
-        & > :nth-child(3) {          //buttons
+        & > :nth-child(3) {          //buttons desktop
             display: flex;
 
             button + button {
                 margin-left: 18px;
-                margin-right: 460px
             }
         }
     }

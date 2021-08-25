@@ -1,17 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
-import Card from '../Cards';
 import InfoBar from './InfoBar';
+import ClientInfo from './ClientInfo'
+import Card from '../Cards';
 
 
-export const FeedStyles = styled.div`
+const FeedStyles = styled.div`
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
+
+    & > :nth-child(1) {
+        width: 100%;
+    }
     
     @media screen and (min-width: 1024px) {
-        padding: 0px 100px;
+        padding: 80px 0 0 100px;
+        
+        & > :nth-child(1) {
+            display: flex;
+            flex-direction: column;
+            padding: 0 35px 0 70px;
+        }
     }
 `
 
@@ -27,7 +36,13 @@ const CardsList = styled.div`
 const TasksFeed = ({ userName }) => {
 	return (
 		<FeedStyles>
-            <InfoBar userName={userName}/>
+            <div>
+                <InfoBar userName={userName}/> 
+                <p>cards map</p>
+            </div>
+
+            <ClientInfo />
+
             {/* <CardsList>
                 <Card 
                     status='late'
