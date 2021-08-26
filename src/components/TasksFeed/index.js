@@ -55,33 +55,33 @@ const TasksFeed = ({ userName }) => {
             <div>
                 <InfoBar userName={userName} /> 
                 <p>cards map</p>
+                {/* <CardsList>
+                    <Card 
+                        status='late'
+                        taskValue='999' 
+                        taskTitle='Título da tarefa' 
+                        taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
+                    />
+                    <Card 
+                        status='toDo'
+                        taskValue='999' 
+                        taskTitle='Título da tarefa' 
+                        taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
+                    />
+                    <Card 
+                        status='okay'
+                        taskValue='999' 
+                        taskTitle='Título da tarefa' 
+                        taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
+                    />
+
+                    <p>Aqui entra o map</p>
+
+                </CardsList> */}
             </div>
 
             <ClientInfo clientInfosData={clientInfosData}/>
 
-            {/* <CardsList>
-                <Card 
-                    status='late'
-                    taskValue='999' 
-                    taskTitle='Título da tarefa' 
-                    taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                />
-                <Card 
-                    status='toDo'
-                    taskValue='999' 
-                    taskTitle='Título da tarefa' 
-                    taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                />
-                <Card 
-                    status='okay'
-                    taskValue='999' 
-                    taskTitle='Título da tarefa' 
-                    taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                />
-
-                <p>Aqui entra o map</p>
-
-            </CardsList> */}
 		</FeedStyles>
 	);
 };

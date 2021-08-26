@@ -11,9 +11,9 @@ const InfoBarStyles = styled.div`
     width: 100%;
     background-color: var(--background);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
+    padding: 0 0 0 30px;
 
     h1 {                        
-        font-family: Roboto;
         font-style: normal;
         font-weight: 700;
         font-size: 1.8rem;
@@ -47,7 +47,7 @@ const InfoBarStyles = styled.div`
         box-shadow: none;
         display: flex;
         justify-content: space-between;
-        padding-right: 35px;
+        padding: 0 35px 0 0;
         
         & > :nth-child(2) {                //icon mobile
             display: none;
