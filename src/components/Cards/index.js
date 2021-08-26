@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
-import Button from '../Buttons'
+import Button from '../_Buttons'
 
 
 export const CardStyle = styled.div`

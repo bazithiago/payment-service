@@ -2,20 +2,21 @@ import React from "react";
 import styled from "styled-components";
 import * as Icon from 'react-feather'
 import initials from '../Functions/initialsFunction'
-import Button from '../../../Buttons'
+import Button from '../../../_Buttons'
+import Separator from '../../../_Separator'
 
 const ClientParentsInfosStyles = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 50px;
     
     & > :nth-child(1){    //parents tag
         display: flex;
         align-content: center;
         width: 100%;
         margin-bottom: 30px;
-        background-color: bisque;
 
         span {
             font-size: 0.9rem;
@@ -43,6 +44,19 @@ const ClientParentsInfosStyles = styled.div`
             align-items: center;
             margin-bottom: 15px;
 
+            div {
+                width: 38px;
+                height: 38px;
+                border-radius: 50%;
+                background-color: var(--background);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0.8rem;
+                font-weight: 800;
+                color: var(--grey-three)
+            }
+
             span {
                 color: var(--grey-one);
                 font-size: 0.85rem;
@@ -63,14 +77,14 @@ const ClientParentsInfosStyles = styled.div`
                 color: var(--grey-three);
                 font-weight: 700;
                 text-align: right;
-                padding-right: 15px;
+                padding-right: 20px;
             }
 
             table > tr > :last-child { // first column
                 font-size: 0.8rem;
                 color: var(--blue-one);
                 font-weight: 700;
-                text-align: right;
+                text-align: left;
             }
         }
     }
@@ -94,16 +108,27 @@ const ButtonMessage = styled(Button)`
     font-size: 0.8rem;
     font-weight: 700;
     min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+
+    :hover {
+        background-color: var(--blue-two);
+    }
+
+    svg {
+        color: rgb(118, 166, 247);
+        width: 14px;
+        stroke-width: 2px;
+        margin-right: 15px;
+    }
 `
 
 
 const ClientParentsInfos = ({ clientInfosData }) => {
     return (
         <ClientParentsInfosStyles>
-            <div>
-                <span>Parents</span>
-                <hr />
-            </div>
+            <Separator>Parents</Separator>
             <div>
                 {clientInfosData.parents.map((parent) => {
                     return(
@@ -119,11 +144,11 @@ const ClientParentsInfos = ({ clientInfosData }) => {
                                 <table>
                                     <tr>
                                         <td>Email</td>
-                                        <td>oioioioi@oi.com</td>
+                                        <td>{parent.email}</td>
                                     </tr>
                                     <tr>
                                         <td>Phone</td>
-                                        <td>oioioioi@oi.com</td>
+                                        <td>{parent.phone}</td>
                                     </tr>
                                 </table>
                             </div>
@@ -132,6 +157,7 @@ const ClientParentsInfos = ({ clientInfosData }) => {
                 })}
             </div>
             <ButtonMessage>
+                <Icon.Mail />
                 Message Parent
             </ButtonMessage>            
             

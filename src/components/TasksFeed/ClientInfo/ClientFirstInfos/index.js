@@ -86,7 +86,7 @@ const ClientEmptyAvatar = styled.div`
     color: var(--blue-two);
 `
 
-const UserIcons = styled.div`
+export const UserIcons = styled.div`
     background-color: var(--background);
     width: 38px;
     height: 38px;

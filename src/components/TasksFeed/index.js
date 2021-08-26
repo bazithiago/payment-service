@@ -43,7 +43,7 @@ export const clientInfosData = {
             name: 'January Gilroy',
             email: 'j.gilroy@gmail.com',
             phone: '626-555-1234',
-            photo: 'https://avatars.githubusercontent.com/u/48968467?v=4'
+            photo: ''
         }
     ]
 }

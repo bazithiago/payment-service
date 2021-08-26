@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import ClientFirstInfos from './ClientFirstInfos'
 import ClientParentsInfos from './ClientParentsInfos'
+import ClientHistory from './ClientHistory'
 
 const ClientInfoStyles = styled.div`
     display: none;
@@ -13,9 +14,8 @@ const ClientInfoStyles = styled.div`
         justify-content: flex-start;
         width: 20vw;
         min-width: 300px;
-        height: 100vh;
         background-color: var(--white);
-        padding: 0 28px ;
+        padding: 0 28px;
     }
 `
 
@@ -24,7 +24,7 @@ const ClientInfo = ({ clientInfosData }) => {
         <ClientInfoStyles>
             <ClientFirstInfos clientInfosData={clientInfosData}/>
             <ClientParentsInfos clientInfosData={clientInfosData}/>
-
+            <ClientHistory></ClientHistory>
 
         </ClientInfoStyles>
     );

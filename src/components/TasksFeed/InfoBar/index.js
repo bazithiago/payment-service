@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../../Buttons'
+import Button from '../../_Buttons'
 import * as Icon from 'react-feather'
 
 const InfoBarStyles = styled.div`
