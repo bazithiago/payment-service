@@ -65,7 +65,6 @@ const InfoBarStyles = styled.div`
 `
 
 const InfoBar = ({ userName }) => {
-    console.log(Button)
     return(
         <InfoBarStyles>
             <h1>{userName}</h1>

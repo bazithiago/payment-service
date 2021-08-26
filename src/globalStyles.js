@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
     * {
     box-sizing: border-box;
-    font-family: sans-serif;
+    font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
     outline: 0;
@@ -20,6 +20,9 @@ const GlobalStyle = createGlobalStyle`
     --background: #F5F6FA;
     --red-alert: #E3324C;
     --yellow-attention: #FB9F36;
+    --blue-one: #4978d3;
+    --blue-two: #4b8ddd;
+    --blue-three: #b6d3f6;
     }
 
 

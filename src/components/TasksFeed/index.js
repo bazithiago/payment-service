@@ -32,16 +32,23 @@ const CardsList = styled.div`
     align-items: center;
     flex-direction: column;
 `    
+export const clientInfosData = {
+    photo: '',
+    name: 'Serge Gilroy',
+    city: 'city',
+    state: 'SP',
+}
+
 
 const TasksFeed = ({ userName }) => {
 	return (
 		<FeedStyles>
             <div>
-                <InfoBar userName={userName}/> 
+                <InfoBar userName={userName} /> 
                 <p>cards map</p>
             </div>
 
-            <ClientInfo />
+            <ClientInfo clientInfosData={clientInfosData}/>
 
             {/* <CardsList>
                 <Card 
