@@ -41,7 +41,7 @@ const CardsList = styled.div`
     }
 
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1400px) {
         padding: 0 20px 0 0;
         flex-direction: row;
         align-items: flex-start;
