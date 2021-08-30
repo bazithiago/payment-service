@@ -64,10 +64,10 @@ const InfoBarStyles = styled.div`
 
 `
 
-const InfoBar = ({ userName }) => {
+const InfoBar = ({ clientName }) => {
     return(
         <InfoBarStyles>
-            <h1>{userName}</h1>
+            <h1>{clientName}'s Payments</h1>
             <div>
                 <Icon.Plus />
             </div>

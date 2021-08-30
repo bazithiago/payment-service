@@ -4,7 +4,7 @@ import InfoBar from './InfoBar';
 import ClientInfo from './ClientInfo'
 import Card from './Cards';
 import Separator from '../_Separator';
-
+import { clientInfosData, cardsListMap } from '../../server/dataClient'
 
 const FeedStyles = styled.div`
     display: flex;
@@ -52,55 +52,26 @@ const CardsList = styled.div`
         height: 100vh;
     }
 `    
-export const clientInfosData = {
-    photo: '',
-    name: 'Serge Gilroy',
-    city: 'city',
-    state: 'SP',
-    users: [1, 2],
-    parents: [
-        {
-            name: 'January Gilroy',
-            email: 'j.gilroy@gmail.com',
-            phone: '626-555-1234',
-            photo: ''
-        }
-    ]
-}
 
-
-const TasksFeed = ({ userName }) => {
+const TasksFeed = () => {
 	return (
 		<FeedStyles>
             <div>
-                <InfoBar userName={userName} /> 
+                <InfoBar clientName={clientInfosData.name} /> 
                 <CardsList>
                     <Separator hrColor='var(--grey-four)'>Charlote Hornets</Separator>
-                        <Card 
-                            status='late'
-                            taskValue='999' 
-                            taskTitle='Título da tarefa' 
-                            taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                        />
-                        <Card 
-                            status='toDo'
-                            taskValue='999' 
-                            taskTitle='Título da tarefa' 
-                            taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                        />
-                        <Card 
-                            status='okay'
-                            taskValue='999' 
-                            taskTitle='Título da tarefa' 
-                            taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                        />
-                        <Card 
-                            status='okay'
-                            taskValue='999' 
-                            taskTitle='Título da tarefa' 
-                            taskDescription='Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
-                        />
 
+                    {cardsListMap.map((card)=> {
+                        return(
+                            <Card 
+                                status={card.status}
+                                taskValue={card.taskValue}
+                                taskTitle={card.taskTitle}
+                                taskDescription={card.taskDescription}
+                            />
+                        )
+                    })}
+                
 
                 </CardsList>
             </div>

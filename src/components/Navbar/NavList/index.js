@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import navbarData from '../navbarData'
+import { navbarData } from '../../../server/dataSystem'
 
 
 const NavListStyles = styled.div`

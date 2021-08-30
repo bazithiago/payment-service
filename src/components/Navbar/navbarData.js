@@ -2,7 +2,7 @@ import React from 'react'
 import * as Icon from 'react-feather';
 
 
-const navbarData = [
+export const navbarData = [
     {
         title: 'Home',
         icon: <Icon.Grid />,

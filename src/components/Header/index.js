@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import InfoArea from './InfoArea'
-
+import { userData } from '../../server/dataSystem'
 
 const HeaderStyles = styled.div`
     width: 100%;
@@ -51,7 +51,7 @@ const InputSearch = styled.input`
 
 
 
-const Header = ({ userName }) => {
+const Header = () => {
     const [notifications] = React.useState([99]);
 	
     return (
@@ -62,8 +62,8 @@ const Header = ({ userName }) => {
             </SearchArea>
             <InfoArea 
                 notifications={notifications} 
-                avatar='https://avatars.githubusercontent.com/u/48968467?v=4'
-                userName={userName}
+                avatar={userData.avatar}
+                userName={userData.username}
             />
 
 		</HeaderStyles>
