@@ -128,31 +128,29 @@ const AllRight = styled.div`
 const Card = ({status, taskValue, taskTitle, taskDescription}) => {
     return(
         <CardStyle status={status}>
-            <Icon.MoreVertical color={`var(--grey-three)`}/>
+            <Icon.MoreHorizontal color={`var(--grey-three)`}/>
             <span>{`$${taskValue}`}</span>
             <h1>{taskTitle}</h1>
             <p>{taskDescription}</p>
 
 
-            { status==='late' ? 
+            { status==='late' && 
                 <div>
-                    <Button status={status}>Agendar</Button>
-                    <Button>Gerenciar</Button>
-                </div> 
-                : <></>
+                    <Button status={status}>Reminder</Button>
+                    <Button>Payment</Button>
+                </div>
             }
+           
 
-            { status==='toDo' ? 
-                <Button status={status}>Agendar</Button>
-                : <></>
+            { status==='toDo' && 
+                <Button status={status}>Record Payment</Button>
             }     
 
-            { status==='okay' ? 
+            { status==='okay' && 
                 <AllRight>
-                    <Icon.CheckSquare size={20} color={`var(--primary)`}/>
-                    <span>Tudo certo!</span>
+                    <Icon.Calendar size={18} color={`var(--primary)`}/>
+                    <span>All done!</span>
                 </AllRight>
-                : <></>
             }  
         </CardStyle>
     );
