@@ -25,7 +25,6 @@ const NavListStyles = styled.div`
         }
 
         span {
-            font-family: Roboto, sans-serif;
             font-size: 1.4rem;
             margin-left: 100px;
         }

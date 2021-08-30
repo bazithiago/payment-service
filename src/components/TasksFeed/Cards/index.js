@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
-import Button from '../_Buttons'
+import Button from '../../_Buttons'
 
 
 export const CardStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    
     width: 100%;
     background: #FFFFFF;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.05);
@@ -23,35 +23,38 @@ export const CardStyle = styled.div`
     }
 
     & > span {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
         background-color: rgba(0, 217, 110,0.1);
         color: var(--primary);
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 1.8rem;
+        font-weight: 700;
+        font-size: 1.5rem;
         margin: 0 0 30px 0;
     }
 
     h1 {
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         color: var(--grey-one);    
     }
 
     p {
-        font-style: normal;
         font-weight: normal;
         font-size: 0.9rem;
         line-height: 1.2rem;
         text-align: center;
         color: var(--grey-two);
         margin: 15px 0 25px 0;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
     }
 
     ${(props)=>{
@@ -63,13 +66,18 @@ export const CardStyle = styled.div`
                 }
                 
                 & > div {
-                    width: 100%;
                     display: grid;
-                    grid-template-columns: 50% 50%;
-                    gap: 5%;
-                    justify-content: center;
+                    grid-auto-flow: column;
+                    gap: 12px;
+                    
+                    & > button {
+                        padding: 8px 20px;
                 }
+                
+                }
+                
             `);
+
         } else if(props.status === 'toDo'){
             return(`
                 span {
@@ -80,21 +88,28 @@ export const CardStyle = styled.div`
 
         }
     }}
-    
-    @media (min-width: 480px) {
-        max-width: 380px;
-    }
+
+
+@media screen and (min-width: 480px) {
+    max-width: 280px;
+}
+
+@media screen and (min-width: 1024px) {
+    width: 15vw;
+    min-width: 280px;
+    min-height: 365px;
+}
 `
 
 const AllRight = styled.div`
     display: flex;
     align-items: center;
-    margin-bottom: -3px;
+    height: 20px;
+    padding: 20px 0;
+
 
     & span {
-        font-family: Roboto;
-        font-style: normal;
-        font-weight: bold;
+        font-weight: 700;
         font-size: 0.9rem;
         text-align: center;
         text-transform: uppercase;

@@ -47,7 +47,7 @@ const InfoBarStyles = styled.div`
         box-shadow: none;
         display: flex;
         justify-content: space-between;
-        padding: 0 35px 0 0;
+        padding: 0 32px 0 0;
         
         & > :nth-child(2) {                //icon mobile
             display: none;

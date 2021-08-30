@@ -14,17 +14,17 @@ const SeparatorStyles = styled.div`
         }
         
         hr {
-            margin: 10px 0 0 15px;
+            margin: ${props => props.margins ? props.margins : '10px 0 0 15px'};
             flex: 1;
             border: 0;
             height: 0;
-            border-top: 1px solid var(--background);
+            border-top: 1px solid ${props => props.hrColor ? props.hrColor : 'var(--background)'};
         }
 `
 
-const Separator = ({ children }) => {
+const Separator = ({ children, hrColor, margins }) => {
     return(
-        <SeparatorStyles>
+        <SeparatorStyles hrColor={hrColor} margins={margins}>
             <span>{children}</span>
             <hr />
         </SeparatorStyles>
