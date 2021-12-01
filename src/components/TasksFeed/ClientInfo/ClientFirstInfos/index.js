@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import * as Icon from 'react-feather'
+import * as Icon from 'react-feather';
+import uniqid from 'uniqid';
 import initials from '../Functions/initialsFunction'
 
 const ClientFirstInfosStyles = styled.div`
@@ -117,7 +118,7 @@ const ClientFirstInfos = ({ clientInfosData }) => {
                 <div>
                     {clientInfosData.users.map((user) => {
                         return(
-                            <UserIcons>
+                            <UserIcons key={uniqid()}>
                                 <Icon.User/>
                             </UserIcons>);
                     })}

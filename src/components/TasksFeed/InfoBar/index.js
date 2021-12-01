@@ -64,7 +64,7 @@ const InfoBarStyles = styled.div`
 
 `
 
-const InfoBar = ({ clientName }) => {
+const InfoBar = ({ clientName, addCard }) => {
     return(
         <InfoBarStyles>
             <h1>{clientName}'s Payments</h1>
@@ -73,7 +73,7 @@ const InfoBar = ({ clientName }) => {
             </div>
             <div>
                 <Button>Payment History</Button>
-                <Button primary>Add Payment</Button>
+                <Button primary onClick={addCard}>Add Payment</Button>
             </div>
         </InfoBarStyles>
     )

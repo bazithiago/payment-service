@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import uniqid from 'uniqid';
 import { navbarData } from '../../../server/dataSystem'
 
 
@@ -57,7 +58,7 @@ const NavList = () => {
         <NavListStyles>
             {navbarData.map((item, index) => {
                 return (
-                    <div key={index} href={item.path}>
+                    <div key={uniqid()} href={item.path}>
                         {item.icon}<span>{item.title}</span>
                     </div>
                 )

@@ -17,24 +17,28 @@ export const clientInfosData = {
 
 export const cardsListMap = [
     {
+        id: 1,
         status: 'late',
         taskValue: '999', 
         taskTitle: 'Título da tarefa', 
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
     },
     {
+        id: 2,
         status: 'toDo',
         taskValue: '999', 
         taskTitle: 'Título da tarefa',
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '  
     },
     {
+        id: 3,
         status: 'okay',
         taskValue: '999',
         taskTitle: 'Título da tarefa', 
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
     },
     {
+        id: 4,
         status: 'okay',
         taskValue: '999',
         taskTitle: 'Título da tarefa', 

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import * as Icon from 'react-feather'
+import uniqid from 'uniqid';
 import initials from '../Functions/initialsFunction'
 import Button from '../../../_Buttons'
 import Separator from '../../../_Separator'
@@ -39,7 +40,7 @@ const ClientParentsInfosStyles = styled.div`
         flex-direction: column;
         align-items: center;
 
-        & > :nth-child(1) {    // avatar name
+        & > div > :nth-child(1) {    // avatar name
             display: flex;
             align-items: center;
             margin-bottom: 15px;
@@ -65,14 +66,14 @@ const ClientParentsInfosStyles = styled.div`
             }
         }
 
-        & > :nth-child(2) {   //tables div
+        & > div > :nth-child(2) {   //tables div
             margin-bottom: 30px;
 
-            table > tr {
+            tbody > tr {
                 height: 25px;
             }
 
-            table > tr > :first-child { // first column
+            tbody > tr > :first-child { // first column
                 font-size: 0.8rem;
                 color: var(--grey-three);
                 font-weight: 700;
@@ -80,7 +81,7 @@ const ClientParentsInfosStyles = styled.div`
                 padding-right: 20px;
             }
 
-            table > tr > :last-child { // first column
+            tbody > tr > :last-child { // first column
                 font-size: 0.8rem;
                 color: var(--blue-one);
                 font-weight: 700;
@@ -132,7 +133,7 @@ const ClientParentsInfos = ({ clientInfosData }) => {
             <div>
                 {clientInfosData.parents.map((parent) => {
                     return(
-                        <>
+                        <div key={uniqid()}>
                             <div>
                                 {parent.photo 
                                     ? <ParentAvatar alt={parent.name} src={parent.photo} /> 
@@ -142,17 +143,19 @@ const ClientParentsInfos = ({ clientInfosData }) => {
                             </div>
                             <div>
                                 <table>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>{parent.email}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Phone</td>
-                                        <td>{parent.phone}</td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td>Email</td>
+                                            <td>{parent.email}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Phone</td>
+                                            <td>{parent.phone}</td>
+                                        </tr>
+                                    </tbody>
                                 </table>
                             </div>
-                        </>
+                        </div>
                      )
                 })}
             </div>

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import uniqid from 'uniqid';
 import InfoBar from './InfoBar';
 import ClientInfo from './ClientInfo'
 import Card from './Cards';
@@ -51,19 +52,35 @@ const CardsList = styled.div`
         overflow-x: hidden;
         height: 100vh;
     }
-`    
+`
+
+const CardExample = 
+    {
+        status: 'late',
+        taskValue: '333', 
+        taskTitle: 'teste', 
+        taskDescription: 'teste'
+    }
 
 const TasksFeed = () => {
+    const [CardsArray, setCardsArray] = useState(cardsListMap) //array para o map
+    
+    const addCard = () => {
+        setCardsArray(CardsArray.concat(CardExample))
+    }
+
+
 	return (
 		<FeedStyles>
             <div>
-                <InfoBar clientName={clientInfosData.name} /> 
+                <InfoBar clientName={clientInfosData.name} addCard={addCard}/> 
                 <CardsList>
                     <Separator hrColor='var(--grey-four)'>Charlote Hornets</Separator>
 
-                    {cardsListMap.map((card)=> {
+                    {CardsArray.map(( card ) => {
                         return(
                             <Card 
+                                key={uniqid()}
                                 status={card.status}
                                 taskValue={card.taskValue}
                                 taskTitle={card.taskTitle}
@@ -71,7 +88,8 @@ const TasksFeed = () => {
                             />
                         )
                     })}
-                
+
+                    
 
                 </CardsList>
             </div>
