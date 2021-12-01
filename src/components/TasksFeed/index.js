@@ -74,12 +74,11 @@ const TasksFeed = () => {
         let newCardsArray = CardsArray.filter((cards) => cards !== card);
         setCardsArray(newCardsArray)
     }
-    console.log(CardsArray)
     
 	return (
 		<FeedStyles>
             <div>
-                <InfoBar clientName={clientInfosData.name} addPayment={addPayment}/> 
+                <InfoBar clientName={clientInfosData.name} addPayment={addPayment} /> 
                 <CardsList>
                     <Separator hrColor='var(--grey-four)'>Charlote Hornets</Separator>
 
