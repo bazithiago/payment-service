@@ -30,6 +30,22 @@ const Button = styled.button`
             `
     };
 
+
+    ${ props => props.alert
+            && `
+                background-color: var(--red-alert);
+                color: var(--white);
+                border: 2px solid var(--red-alert);
+
+                :hover {
+                    background-color: red;
+                    transform: all 0.2s;
+                    border: 2px solid red;
+                }
+            `
+    };
+
+
     ${({ status }) => {
         if (status === "late") {
             return(`

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import Button from '../../_Buttons'
+import { ModalConfirmDelete } from './ModalConfirmDelete'
 
 
 export const CardStyle = styled.div`
@@ -188,7 +189,13 @@ const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => 
     const handleClick = (e) => {            
         setOpened((prevState) => !prevState)       
     }
-    
+
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
+        
     return(
         <>
             <CardStyle status={status}>
@@ -196,7 +203,7 @@ const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => 
                     <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={handleClick} />
                     <EditOptionsMenu opened={opened} ref={wrapperRef}>
                         <span className='edit'>Editar</span>
-                        <span className='delete' onClick={handleDelete}>Deletar</span>
+                        <span className='delete' onClick={openModal}>Deletar</span>
                     </EditOptionsMenu>
                 </IconEdit>
 
@@ -224,6 +231,8 @@ const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => 
                     </AllRight>
                 }  
             </CardStyle>
+            
+            <ModalConfirmDelete showModal={showModal} setShowModal={setShowModal} handleDelete={handleDelete} />
         </>
     );
 }
