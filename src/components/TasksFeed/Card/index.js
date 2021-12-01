@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import Button from '../../_Buttons'
+import { EditOptions, EditOptionsMenu } from './EditOptions'
 import { ModalConfirmDelete } from './ModalConfirmDelete'
 
 
@@ -117,59 +118,19 @@ const AllRight = styled.div`
         margin-bottom: 3px;
     }
 `
-const IconEdit = styled.div`
-    position: relative;
-    align-self: flex-end;
-    margin: -15px -20px 0 0;
-    
-    & > svg {
-        cursor: pointer;
-    }
-`
-
-const EditOptionsMenu = styled.div`
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    min-width: 100px;
-    background-color: red;
-    flex-direction: column;
-    padding: 15px;
-    background-color: var(--white);
-    box-shadow: 0px 4px 8px var(--grey-four);
-    border-radius: 5px;
-    color: var(--grey-two);
-    font-weight: bold;
-    display: ${(props) => (props.opened ? 'flex' : 'none')};
-    height: ${(props) => (props.opened ? 'auto' : '0')};
-    
-    & > span + span {
-        margin-top: 15px;
-    }
-
-    & > span:hover {
-        color: var(--grey-one);
-    }
-
-    span.edit {
-        cursor: not-allowed;
-        color: var(--grey-three);
-    }
-    span.delete {
-        cursor: pointer;
-
-        &:hover {
-            color: var(--red-alert);
-        }
-    }
-`
 
 
 
 
-const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => {
+
+const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) => {
     const wrapperRef = useRef(null);
     const [opened, setOpened] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+    
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
     
     useClickOutsideMenu(wrapperRef, opened);
     function useClickOutsideMenu(ref, opened) {
@@ -185,27 +146,22 @@ const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => 
             };
         }, [ref, opened]);
     }
-    
-    const handleClick = (e) => {            
+
+
+    const openMenu = (e) => {            
         setOpened((prevState) => !prevState)       
     }
-
-    const [showModal, setShowModal] = useState(false);
-
-    const openModal = () => {
-        setShowModal(prev => !prev);
-    };
         
     return(
         <>
             <CardStyle status={status}>
-                <IconEdit >
-                    <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={handleClick} />
+                <EditOptions>
+                    <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={openMenu} />
                     <EditOptionsMenu opened={opened} ref={wrapperRef}>
                         <span className='edit'>Editar</span>
                         <span className='delete' onClick={openModal}>Deletar</span>
                     </EditOptionsMenu>
-                </IconEdit>
+                </EditOptions>
 
                 <span>{`$${taskValue}`}</span>
                 <h1>{taskTitle}</h1>

@@ -103,7 +103,6 @@ export const ModalConfirmDelete = ({ showModal, setShowModal, handleDelete }) =>
     e => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
-        console.log('I pressed');
       }
     },
     [setShowModal, showModal]
