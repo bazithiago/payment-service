@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import * as Icon from 'react-feather';
 import Button from '../../_Buttons'
@@ -15,12 +15,6 @@ export const CardStyle = styled.div`
     border-radius: 5px;
     padding: 30px 35px;
     margin: 0 0 25px 0;
-
-    & > svg {
-        align-self: flex-end;
-        margin: -15px -20px 0 0;
-        cursor: pointer;
-    }
 
     & > span {
         width: 100px;
@@ -42,7 +36,7 @@ export const CardStyle = styled.div`
         color: var(--grey-one);    
     }
 
-    p {
+    & > p {
         font-weight: normal;
         font-size: 0.9rem;
         line-height: 1.2rem;
@@ -60,12 +54,12 @@ export const CardStyle = styled.div`
     ${(props)=>{
         if(props.status === 'late'){
             return(`
-                span {
+                & > span {
                     background-color: rgba(227, 50, 76, 0.1);
                     color: var(--red-alert);
                 }
                 
-                & > div {
+                & > div.twoButtons {
                     display: grid;
                     grid-auto-flow: column;
                     gap: 12px;
@@ -80,7 +74,7 @@ export const CardStyle = styled.div`
 
         } else if(props.status === 'toDo'){
             return(`
-                span {
+                & > span {
                     background-color: rgba(251, 159, 54, 0.1);
                     color: var(--yellow-attention);
                 }
@@ -122,37 +116,116 @@ const AllRight = styled.div`
         margin-bottom: 3px;
     }
 `
+const IconEdit = styled.div`
+    position: relative;
+    align-self: flex-end;
+    margin: -15px -20px 0 0;
+    
+    & > svg {
+        cursor: pointer;
+    }
+`
+
+const EditOptionsMenu = styled.div`
+    position: absolute;
+    z-index: 10;
+    right: 0;
+    min-width: 100px;
+    background-color: red;
+    flex-direction: column;
+    padding: 15px;
+    background-color: var(--white);
+    box-shadow: 0px 4px 8px var(--grey-four);
+    border-radius: 5px;
+    color: var(--grey-two);
+    font-weight: bold;
+    display: ${(props) => (props.opened ? 'flex' : 'none')};
+    height: ${(props) => (props.opened ? 'auto' : '0')};
+    
+    & > span + span {
+        margin-top: 15px;
+    }
+
+    & > span:hover {
+        color: var(--grey-one);
+    }
+
+    span.edit {
+        cursor: not-allowed;
+        color: var(--grey-three);
+    }
+    span.delete {
+        cursor: pointer;
+
+        &:hover {
+            color: var(--red-alert);
+        }
+    }
+`
+
 
 
 
 const Card = ({status, taskValue, taskTitle, taskDescription}) => {
-    return(
-        <CardStyle status={status}>
-            <Icon.MoreHorizontal color={`var(--grey-three)`}/>
-            <span>{`$${taskValue}`}</span>
-            <h1>{taskTitle}</h1>
-            <p>{taskDescription}</p>
+    const wrapperRef = useRef(null);
+    const [opened, setOpened] = useState(false);
+    useClickOutsideMenu(wrapperRef, opened);
 
+    const handleClick = (e) => {            
+        setOpened((prevState) => !prevState)       
+    } 
 
-            { status==='late' && 
-                <div>
-                    <Button status={status}>Reminder</Button>
-                    <Button>Payment</Button>
-                </div>
+    function useClickOutsideMenu(ref, opened) {
+        useEffect(() => {
+            function handleClickOutside(event) {
+                if (opened && ref.current && !ref.current.contains(event.target)) {
+                    setOpened((prevState) => !prevState)       
+                    console.log('clicou fora')      
+                }
             }
-           
+            document.addEventListener("mousedown", handleClickOutside);
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [ref, opened]);
+    }
+    
+    return(
+        <>
+            <CardStyle status={status}>
+                <IconEdit >
+                    <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={handleClick} />
+                    <EditOptionsMenu opened={opened} ref={wrapperRef}>
+                        <span className='edit'>Editar</span>
+                        <span className='delete'>Deletar</span>
+                    </EditOptionsMenu>
+                </IconEdit>
 
-            { status==='toDo' && 
-                <Button status={status}>Record Payment</Button>
-            }     
+                <span>{`$${taskValue}`}</span>
+                <h1>{taskTitle}</h1>
+                <p>{taskDescription}</p>
 
-            { status==='okay' && 
-                <AllRight>
-                    <Icon.Calendar size={18} color={`var(--primary)`}/>
-                    <span>All done!</span>
-                </AllRight>
-            }  
-        </CardStyle>
+
+                { status==='late' && 
+                    <div className='twoButtons'>
+                        <Button status={status}>Reminder</Button>
+                        <Button>Payment</Button>
+                    </div>
+                }
+            
+
+                { status==='toDo' && 
+                    <Button status={status}>Record Payment</Button>
+                }     
+
+                { status==='okay' && 
+                    <AllRight>
+                        <Icon.Calendar size={18} color={`var(--primary)`}/>
+                        <span>All done!</span>
+                    </AllRight>
+                }  
+            </CardStyle>
+        </>
     );
 }
 
