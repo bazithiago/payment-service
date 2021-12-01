@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from '../../_Buttons'
 import * as Icon from 'react-feather'
+import { ModalAddPayment } from './ModalAddPayment'
 
 const InfoBarStyles = styled.div`
     display: flex;
@@ -64,7 +65,13 @@ const InfoBarStyles = styled.div`
 
 `
 
-const InfoBar = ({ clientName, addCard }) => {
+const InfoBar = ({ clientName, addPayment }) => {
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(prev => !prev);
+    };
+
     return(
         <InfoBarStyles>
             <h1>{clientName}'s Payments</h1>
@@ -73,8 +80,9 @@ const InfoBar = ({ clientName, addCard }) => {
             </div>
             <div>
                 <Button>Payment History</Button>
-                <Button primary onClick={addCard}>Add Payment</Button>
+                <Button primary onClick={openModal}>Add Payment</Button>
             </div>
+        <ModalAddPayment showModal={showModal} setShowModal={setShowModal} addPayment={addPayment}/>
         </InfoBarStyles>
     )
 }
