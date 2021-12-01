@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import uniqid from 'uniqid';
 import InfoBar from './InfoBar';
 import ClientInfo from './ClientInfo'
-import Card from './Cards';
+import Card from './Card';
 import Separator from '../_Separator';
 import { clientInfosData, cardsListMap } from '../../server/dataClient'
 
@@ -69,6 +69,10 @@ const TasksFeed = () => {
         setCardsArray(CardsArray.concat(CardExample))
     }
 
+    const handleDelete = (card) => {
+        let newCardsArray = CardsArray.filter((cards) => cards !== card);
+        setCardsArray(newCardsArray)
+    }
 
 	return (
 		<FeedStyles>
@@ -85,6 +89,7 @@ const TasksFeed = () => {
                                 taskValue={card.taskValue}
                                 taskTitle={card.taskTitle}
                                 taskDescription={card.taskDescription}
+                                handleDelete={() => handleDelete(card)}
                             />
                         )
                     })}

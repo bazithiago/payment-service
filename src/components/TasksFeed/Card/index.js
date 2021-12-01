@@ -166,21 +166,16 @@ const EditOptionsMenu = styled.div`
 
 
 
-const Card = ({status, taskValue, taskTitle, taskDescription}) => {
+const Card = ({status, taskValue, taskTitle, taskDescription, handleDelete}) => {
     const wrapperRef = useRef(null);
     const [opened, setOpened] = useState(false);
+    
     useClickOutsideMenu(wrapperRef, opened);
-
-    const handleClick = (e) => {            
-        setOpened((prevState) => !prevState)       
-    } 
-
     function useClickOutsideMenu(ref, opened) {
         useEffect(() => {
             function handleClickOutside(event) {
                 if (opened && ref.current && !ref.current.contains(event.target)) {
                     setOpened((prevState) => !prevState)       
-                    console.log('clicou fora')      
                 }
             }
             document.addEventListener("mousedown", handleClickOutside);
@@ -190,6 +185,10 @@ const Card = ({status, taskValue, taskTitle, taskDescription}) => {
         }, [ref, opened]);
     }
     
+    const handleClick = (e) => {            
+        setOpened((prevState) => !prevState)       
+    }
+    
     return(
         <>
             <CardStyle status={status}>
@@ -197,7 +196,7 @@ const Card = ({status, taskValue, taskTitle, taskDescription}) => {
                     <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={handleClick} />
                     <EditOptionsMenu opened={opened} ref={wrapperRef}>
                         <span className='edit'>Editar</span>
-                        <span className='delete'>Deletar</span>
+                        <span className='delete' onClick={handleDelete}>Deletar</span>
                     </EditOptionsMenu>
                 </IconEdit>
 
