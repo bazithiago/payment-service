@@ -75,7 +75,7 @@ const InfoBar = ({ clientName, addPayment }) => {
     return(
         <InfoBarStyles>
             <h1>{clientName}'s Payments</h1>
-            <div>
+            <div onClick={openModal}>
                 <Icon.Plus />
             </div>
             <div>
