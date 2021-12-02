@@ -127,6 +127,7 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
     const wrapperRef = useRef(null);
     const [opened, setOpened] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [finalStatus, setFinalStatus] = useState(status);
     
     const openModal = () => {
         setShowModal(prev => !prev);
@@ -151,10 +152,14 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
     const openMenu = (e) => {            
         setOpened((prevState) => !prevState)       
     }
+
+    const recordPayment = () => {
+        setFinalStatus('okay')
+    }
         
     return(
         <>
-            <CardStyle status={status}>
+            <CardStyle status={finalStatus}>
                 <EditOptions>
                     <Icon.MoreHorizontal color={`var(--grey-three)`} onClick={openMenu} />
                     <EditOptionsMenu opened={opened} ref={wrapperRef}>
@@ -166,22 +171,20 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
                 <span>{`$${taskValue}`}</span>
                 <h1>{taskTitle}</h1>
                 <p>{taskDescription}</p>
-                <p>{status}</p>
 
-
-                { status==='late' && 
+                { finalStatus==='late' && 
                     <div className='twoButtons'>
-                        <Button status={status}>Reminder</Button>
-                        <Button>Payment</Button>
+                        <Button status={status}>Adjust</Button>
+                        <Button onClick={recordPayment}>Payment</Button>
                     </div>
                 }
             
 
-                { status==='toDo' && 
-                    <Button status={status}>Record Payment</Button>
+                { finalStatus==='toDo' && 
+                    <Button status={status} onClick={recordPayment}>Record Payment</Button>
                 }     
 
-                { status==='okay' && 
+                { finalStatus==='okay' && 
                     <AllRight>
                         <Icon.Calendar size={18} color={`var(--primary)`}/>
                         <span>All done!</span>
