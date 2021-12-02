@@ -166,6 +166,7 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
                 <span>{`$${taskValue}`}</span>
                 <h1>{taskTitle}</h1>
                 <p>{taskDescription}</p>
+                <p>{status}</p>
 
 
                 { status==='late' && 

@@ -108,12 +108,31 @@ export const ModalAddPayment = ({ showModal, setShowModal, cardsArray, setCardsA
     taskTitle: 'aqui', 
     taskDescription: ''
   })
-  
-  
-  
+
+  function checkStatus(date) {
+    const fullDate = new Date()
+    const day = () => { 
+      if(fullDate.getDate() < 10) {
+        return '0' + fullDate.getDate()
+      } else {
+        return fullDate.getDate()
+      }
+    } 
+    const month = fullDate.getMonth() + 1
+    const year = fullDate.getFullYear()
+    const today = `${year}-${month}-${day}`
+    
+     if(today > date) {
+       return 'late'
+     } else {
+       return 'toDo'
+     }
+  } 
+
   const setValues = () => {
+
     setInputValues({
-      status: date,
+      status: checkStatus(date),
       taskTitle: title, 
       taskDescription: description,
       taskValue: valueToPay 
@@ -126,6 +145,7 @@ export const ModalAddPayment = ({ showModal, setShowModal, cardsArray, setCardsA
     setShowModal(prev => !prev)
   }
 
+  console.log(inputValues)
   //modal
   const modalRef = useRef();
 
