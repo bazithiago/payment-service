@@ -65,7 +65,7 @@ const InfoBarStyles = styled.div`
 
 `
 
-const InfoBar = ({ clientName, addPayment }) => {
+const InfoBar = ({ clientName, cardsArray, setCardsArray }) => {
     const [showModal, setShowModal] = useState(false);
 
     const openModal = () => {
@@ -80,9 +80,9 @@ const InfoBar = ({ clientName, addPayment }) => {
             </div>
             <div>
                 <Button>Payment History</Button>
-                <Button primary onClick={openModal}>Add Payment</Button>
+                <Button primary onClick={openModal} >Add Payment</Button>
             </div>
-        <ModalAddPayment showModal={showModal} setShowModal={setShowModal} addPayment={addPayment}/>
+        <ModalAddPayment showModal={showModal} setShowModal={setShowModal} cardsArray={cardsArray} setCardsArray={setCardsArray}/>
         </InfoBarStyles>
     )
 }

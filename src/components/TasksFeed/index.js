@@ -54,35 +54,26 @@ const CardsList = styled.div`
     }
 `
 
-const CardExample = 
-    {
-        id: uniqid(),
-        status: 'late',
-        taskValue: '333', 
-        taskTitle: 'teste', 
-        taskDescription: 'teste'
-    }
+
 
 const TasksFeed = () => {
-    const [CardsArray, setCardsArray] = useState(cardsListMap) //array para o map
+    const [cardsArray, setCardsArray] = useState(cardsListMap) //array para o map
     
-    const addPayment = () => {
-        setCardsArray(CardsArray.concat(CardExample))
-    }
-
+    
     const handleDelete = (card) => {
-        let newCardsArray = CardsArray.filter((cards) => cards !== card);
+        let newCardsArray = cardsArray.filter((cards) => cards !== card);
         setCardsArray(newCardsArray)
     }
-    
+
+
 	return (
 		<FeedStyles>
             <div>
-                <InfoBar clientName={clientInfosData.name} addPayment={addPayment} /> 
+                <InfoBar clientName={clientInfosData.name} cardsArray={cardsArray} setCardsArray={setCardsArray} /> 
                 <CardsList>
                     <Separator hrColor='var(--grey-four)'>Charlote Hornets</Separator>
 
-                    {CardsArray.map(( card ) => {
+                    {cardsArray.map(( card ) => {
                         return(
                             <Card 
                                 key={uniqid()}

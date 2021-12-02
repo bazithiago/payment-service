@@ -1,6 +1,7 @@
-import React, { useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
+import uniqid from 'uniqid';
 import Button from '../../_Buttons/index'
 
 const Background = styled.div`
@@ -63,6 +64,16 @@ const ModalContent = styled.div`
         margin-top: 15px;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border: 1px solid;
+        padding: 5px;
+      }
+    }
+
     @media screen and (min-width: 1024px) {
         
         .buttons {
@@ -82,7 +93,40 @@ const ModalContent = styled.div`
 `;
 
 
-export const ModalAddPayment = ({ showModal, setShowModal, addPayment }) => {
+
+
+export const ModalAddPayment = ({ showModal, setShowModal, cardsArray, setCardsArray  }) => {
+
+  const [title, setTitle] = useState('') 
+  const [description, setDescription] = useState('') 
+  const [valueToPay, setValueToPay] = useState('') 
+  const [date, setDate] = useState('')
+  const [inputValues, setInputValues] = useState({
+    id: uniqid(),
+    status: '',
+    taskValue: '', 
+    taskTitle: 'aqui', 
+    taskDescription: ''
+  })
+  
+  
+  
+  const setValues = () => {
+    setInputValues({
+      status: date,
+      taskTitle: title, 
+      taskDescription: description,
+      taskValue: valueToPay 
+    });
+  }
+
+  const addPayment = (e) => {
+    e.preventDefault();
+    setCardsArray(cardsArray.concat(inputValues))
+    setShowModal(prev => !prev)
+  }
+
+  //modal
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -115,11 +159,8 @@ export const ModalAddPayment = ({ showModal, setShowModal, addPayment }) => {
     },
     [keyPress]
   );
+  // fim modal
 
-  function handleAddPayment() {
-    addPayment();
-    setShowModal(prev => !prev)
-  }
 
   return (
     <>
@@ -129,13 +170,28 @@ export const ModalAddPayment = ({ showModal, setShowModal, addPayment }) => {
             <ModalWrapper showModal={showModal}>
               
               <ModalContent>
-                <p>ADICIONAR?</p>
-                {/* <span>Deseja realmente deletar a tarefa?</span> */}
-                
-                <div className='buttons'>
-                    <Button onClick={() => setShowModal(prev => !prev)}>cancelar</Button>
-                    <Button alert onClick={handleAddPayment}>Sim, ADICIONAR</Button>
-                </div>
+                  <p>Adicionar pagamento</p>
+                  <span>Preencha todos os campos para adicionar programação de pagamento</span>
+                  
+                  <form>
+                    <label htmlFor="title">Nome da tarefa</label>
+                    <input type="text" name="title" onChange={e => setTitle(e.target.value)} onBlur={setValues}required/>
+
+                    <label htmlFor="description">Descrição</label>
+                    <input type="text" name="description" onChange={e => setDescription(e.target.value)} onBlur={setValues} required/>
+                    
+                    <label htmlFor="valueToPay">Valor a pagar</label>
+                    <input type="text" name="valueToPay" onChange={e => setValueToPay(e.target.value)} onBlur={setValues}required/>
+
+                    <label htmlFor="date">Data a pagar</label>
+                    <input type="date" name="date" onChange={e => setDate(e.target.value)} onBlur={setValues} required/>
+
+                    <div className='buttons'>
+                        <Button onClick={() => setShowModal(prev => !prev)}>cancelar</Button>
+                        <Button alert onClick={addPayment} type='submit'>Sim, ADICIONAR</Button>
+                    </div>
+                  </form>
+
 
               </ModalContent>
             </ModalWrapper>
