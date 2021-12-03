@@ -18,7 +18,7 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-    width: 100%;
+    width: 80vw;
     padding: 10%; 
     box-shadow: 0 5px 16px rgba(0, 0, 0, 0.2);
     background: #fff;
@@ -42,18 +42,20 @@ const ModalContent = styled.div`
     align-items: center;
     line-height: 1.8;
     color: #141414;
-
+    
     p {
-        margin-bottom: 1rem;
-        font-size: 2rem;
-        line-height: 2rem;
-        font-weight: bold;
-        text-align: center;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      line-height: 2rem;
+      font-weight: bold;
+      text-align: center;
     }
 
     span {
-        margin-bottom: 1rem;
-        color: var(--grey-one)
+        margin-bottom: 1.5rem;
+        color: var(--grey-one);
+        text-align: center;
+        line-height: 1.15rem;
     }
 
     button {
@@ -68,9 +70,21 @@ const ModalContent = styled.div`
       display: flex;
       flex-direction: column;
 
+      label {
+        font-size: 0.9rem;
+        color: var(--grey-one);
+
+      }
+
       input {
-        border: 1px solid;
-        padding: 5px;
+        border: 1px solid var(--grey-three);
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+
+      input:focus {
+        border: 1px solid var(--primary);
       }
     }
 
@@ -206,7 +220,7 @@ export const ModalAddPayment = ({ showModal, setShowModal, cardsArray, setCardsA
 
                     <div className='buttons'>
                         <Button onClick={() => setShowModal(prev => !prev)}>cancelar</Button>
-                        <Button alert onClick={addPayment} type='submit'>Sim, ADICIONAR</Button>
+                        <Button primary onClick={addPayment} type='submit'>Sim, ADICIONAR</Button>
                     </div>
                   </form>
 

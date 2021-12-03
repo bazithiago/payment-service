@@ -21,11 +21,14 @@ const Button = styled.button`
         && `
             background-color: var(--primary);
             color: var(--white);
-            border: 0;
+            border: 2px solid var(--primary);
+
 
             :hover {
                 background-color: var(--primary-hover);
+                border: 2px solid var(--primary-hover);
                 transform: all 0.2s;
+
             }
             `
     };
