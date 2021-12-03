@@ -145,10 +145,8 @@ export const ModalAddPayment = ({ showModal, setShowModal, cardsArray, setCardsA
     setShowModal(prev => !prev)
   }
 
-  console.log(inputValues)
   //modal
   const modalRef = useRef();
-
   const animation = useSpring({
     config: {
       duration: 250

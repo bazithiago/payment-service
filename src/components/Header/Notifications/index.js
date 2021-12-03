@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import * as Icon from 'react-feather';
 import IconsAreaStyles from '../IconsAreaStyles'
+import NotificationList from './NotificationList'
+
+const NotificationsStyles = styled.div`
+    display: flex;
+    position: relative;
+`
 
 const NotificationsArea = styled(IconsAreaStyles)`
     border-right: 2px solid var(--background);
@@ -67,22 +73,31 @@ const EmptyNotificationsArea = styled(IconsAreaStyles)`
 
 
 const Notifications = ({ notifications }) => {
+    const [opened, setOpened] = useState(false);
+    
+    const openMenu = (e) => {            
+        setOpened((prevState) => !prevState)       
+    }
+
+
     return(
-        <>
+        <NotificationsStyles >
            {notifications > 0 
             ?
-                <NotificationsArea>
+                <NotificationsArea onClick={openMenu} >
                     <Icon.Bell size={28}/>
                     <BadgeNotification>
                         <span>{notifications}</span>
                     </BadgeNotification>
                 </NotificationsArea>
             : 
-                <EmptyNotificationsArea>
+            <EmptyNotificationsArea onClick={openMenu}>
                     <Icon.Bell size={28}/>
                 </EmptyNotificationsArea>
             }
-        </>
+
+            <NotificationList opened={opened} setOpened={setOpened} />
+        </NotificationsStyles>
     )
 }
 

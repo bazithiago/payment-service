@@ -15,7 +15,6 @@ export const EditOptionsMenu = styled.div`
     z-index: 10;
     right: 0;
     min-width: 100px;
-    background-color: red;
     flex-direction: column;
     padding: 15px;
     background-color: var(--white);

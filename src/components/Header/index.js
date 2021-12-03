@@ -52,7 +52,7 @@ const InputSearch = styled.input`
 
 
 const Header = () => {
-    const [notifications] = React.useState([99]);
+    const [notifications] = React.useState([2]);
 	
     return (
 		<HeaderStyles>

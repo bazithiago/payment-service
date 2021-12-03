@@ -133,7 +133,6 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
         setShowModal(prev => !prev);
     };
     
-    useClickOutsideMenu(wrapperRef, opened);
     function useClickOutsideMenu(ref, opened) {
         useEffect(() => {
             function handleClickOutside(event) {
@@ -147,6 +146,7 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
             };
         }, [ref, opened]);
     }
+    useClickOutsideMenu(wrapperRef, opened);
 
 
     const openMenu = (e) => {            
