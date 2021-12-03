@@ -129,7 +129,7 @@ const ButtonMessage = styled(Button)`
 const ClientParentsInfos = ({ clientInfosData }) => {
     return (
         <ClientParentsInfosStyles>
-            <Separator>Parents</Separator>
+            <Separator>Contatos</Separator>
             <div>
                 {clientInfosData.parents.map((parent) => {
                     return(
@@ -149,7 +149,7 @@ const ClientParentsInfos = ({ clientInfosData }) => {
                                             <td>{parent.email}</td>
                                         </tr>
                                         <tr>
-                                            <td>Phone</td>
+                                            <td>Fone</td>
                                             <td>{parent.phone}</td>
                                         </tr>
                                     </tbody>
@@ -161,7 +161,7 @@ const ClientParentsInfos = ({ clientInfosData }) => {
             </div>
             <ButtonMessage>
                 <Icon.Mail />
-                Message Parent
+                Enviar mensagem
             </ButtonMessage>            
             
             

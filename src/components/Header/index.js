@@ -58,7 +58,7 @@ const Header = () => {
 		<HeaderStyles>
             <SearchArea>
                 <Icon.Search color={`var(--grey-three)`} />
-                <InputSearch placeholder={'Search for...'} />
+                <InputSearch placeholder={'Pesquisa'} />
             </SearchArea>
             <InfoArea 
                 notifications={notifications} 

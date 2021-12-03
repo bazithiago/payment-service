@@ -25,7 +25,6 @@ const ClientInfo = ({ clientInfosData }) => {
             <ClientFirstInfos clientInfosData={clientInfosData}/>
             <ClientParentsInfos clientInfosData={clientInfosData}/>
             <ClientHistory></ClientHistory>
-
         </ClientInfoStyles>
     );
 }

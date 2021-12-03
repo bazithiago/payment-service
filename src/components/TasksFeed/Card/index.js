@@ -174,20 +174,20 @@ const Card = ({ status, taskValue, taskTitle, taskDescription, handleDelete }) =
 
                 { finalStatus==='late' && 
                     <div className='twoButtons'>
-                        <Button status={status}>Adjust</Button>
-                        <Button onClick={recordPayment}>Payment</Button>
+                        <Button status={status}>Editar</Button>
+                        <Button onClick={recordPayment}>Pagamento</Button>
                     </div>
                 }
             
 
                 { finalStatus==='toDo' && 
-                    <Button status={status} onClick={recordPayment}>Record Payment</Button>
+                    <Button status={status} onClick={recordPayment}>Registrar pagamento</Button>
                 }     
 
                 { finalStatus==='okay' && 
                     <AllRight>
                         <Icon.Calendar size={18} color={`var(--primary)`}/>
-                        <span>All done!</span>
+                        <span>Tudo certo!</span>
                     </AllRight>
                 }  
             </CardStyle>

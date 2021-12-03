@@ -1,14 +1,14 @@
 export const clientInfosData = {
     photo: '',
-    name: 'Serge Gilroy',
-    city: 'city',
+    name: 'Jorge Mário Gilroy',
+    city: 'São Paulo',
     state: 'SP',
     users: [1, 2],
     parents: [
         {
-            name: 'January Gilroy',
+            name: 'Jânio Gilroy',
             email: 'j.gilroy@gmail.com',
-            phone: '626-555-1234',
+            phone: '(11) 99123-4567',
             photo: ''
         }
     ]
@@ -19,29 +19,29 @@ export const cardsListMap = [
     {
         id: 1,
         status: 'late',
-        taskValue: '999', 
-        taskTitle: 'Título da tarefa', 
+        taskValue: '350', 
+        taskTitle: 'Consulta #5473', 
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
     },
     {
         id: 2,
         status: 'toDo',
-        taskValue: '999', 
-        taskTitle: 'Título da tarefa',
+        taskValue: '125', 
+        taskTitle: 'Tarefa #8763',
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '  
     },
     {
         id: 3,
         status: 'okay',
         taskValue: '999',
-        taskTitle: 'Título da tarefa', 
+        taskTitle: 'Serviço #7645', 
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
     },
     {
         id: 4,
         status: 'okay',
         taskValue: '999',
-        taskTitle: 'Título da tarefa', 
+        taskTitle: 'Operação #26173', 
         taskDescription: 'Descrição completa da tarefa com observações e detalhes técnicos repassados pela equipe. '
     },
 

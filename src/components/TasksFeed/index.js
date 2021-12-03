@@ -71,23 +71,21 @@ const TasksFeed = () => {
             <div>
                 <InfoBar clientName={clientInfosData.name} cardsArray={cardsArray} setCardsArray={setCardsArray} /> 
                 <CardsList>
-                    <Separator hrColor='var(--grey-four)'>Charlote Hornets</Separator>
+                    <Separator hrColor='var(--grey-four)'>Registros recentes</Separator>
 
-                    {cardsArray.map(( card ) => {
-                        return(
-                            <Card 
-                                key={uniqid()}
-                                id={uniqid()}
-                                status={card.status}
-                                taskValue={card.taskValue}
-                                taskTitle={card.taskTitle}
-                                taskDescription={card.taskDescription}
-                                handleDelete={() => handleDelete(card)}
-                            />
-                        )
-                    })}
-
-                    
+                        {cardsArray.map(( card ) => {
+                            return(
+                                <Card 
+                                    key={uniqid()}
+                                    id={uniqid()}
+                                    status={card.status}
+                                    taskValue={card.taskValue}
+                                    taskTitle={card.taskTitle}
+                                    taskDescription={card.taskDescription}
+                                    handleDelete={() => handleDelete(card)}
+                                />
+                            )
+                        })}
 
                 </CardsList>
             </div>

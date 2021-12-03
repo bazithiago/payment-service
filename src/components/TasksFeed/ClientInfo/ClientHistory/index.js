@@ -39,14 +39,14 @@ const ClientHistoryStyles = styled.div`
 const ClientHistory = () => {
     return(
         <ClientHistoryStyles>
-            <Separator>History</Separator>
+            <Separator>Histórico</Separator>
             <table>
                 <tr>
                     <td>
                         <div><UserIcons><Icon.UserPlus/></UserIcons></div>
                         <div>
-                            <p>Added to <span style={{color: 'var(--blue-one'}}>Charlotte Hornets Academy</span> Team</p>
-                            <span>22/02/2017</span>
+                            <p>Adicionado no projeto <span style={{color: 'var(--blue-one'}}>Beta Academy</span> </p>
+                            <span>22/02/2021</span>
                         </div>
                         
                     </td>
@@ -55,8 +55,8 @@ const ClientHistory = () => {
                     <td>
                         <div><UserIcons><Icon.CreditCard color='var(--primary)'/></UserIcons></div>
                         <div>
-                            <p>Payment to Charlotte has been recorded</p>
-                            <span>22/02/2017</span>
+                            <p>Pagamento de <span style={{color: 'var(--blue-one'}}>Serviço #5728</span> registrado</p>
+                            <span>22/02/2021</span>
                         </div>
                         
                     </td>
@@ -65,8 +65,8 @@ const ClientHistory = () => {
                     <td>
                         <div><UserIcons><Icon.UserCheck/></UserIcons></div>
                         <div>
-                            <p>Added to <span style={{color: 'var(--blue-one'}}>Charlotte Hornets Academy</span> Team</p>
-                            <span>22/02/2017</span>
+                            <p>Cliente registrado</p>
+                            <span>22/02/2021</span>
                         </div>
                         
                     </td>

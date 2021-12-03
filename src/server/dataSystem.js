@@ -16,13 +16,13 @@ export const navbarData = [
 
     },
     {
-        title: 'Clients',
+        title: 'Clientes',
         icon: <Icon.Users />,
         path: 'Clients'
 
     },
     {
-        title: 'List',
+        title: 'Listas',
         icon: <Icon.List />,
         path: 'List'
     },

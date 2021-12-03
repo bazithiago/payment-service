@@ -74,13 +74,13 @@ const InfoBar = ({ clientName, cardsArray, setCardsArray }) => {
 
     return(
         <InfoBarStyles>
-            <h1>{clientName}'s Payments</h1>
+            <h1>{clientName}</h1>
             <div onClick={openModal}>
                 <Icon.Plus />
             </div>
             <div>
-                <Button>Payment History</Button>
-                <Button primary onClick={openModal} >Add Payment</Button>
+                <Button>Histórico</Button>
+                <Button primary onClick={openModal}> Novo pagamento</Button>
             </div>
         <ModalAddPayment showModal={showModal} setShowModal={setShowModal} cardsArray={cardsArray} setCardsArray={setCardsArray}/>
         </InfoBarStyles>
